@@ -18,7 +18,7 @@ bot = commands.Bot(
     activity=discord.Activity(type=discord.ActivityType.playing, name='auf AI WS23/24!'),
     status=discord.Status.online,
     sync_commands=True,
-    delete_not_existing_commands=False
+    delete_not_existing_commands=True
 )
 
 if __name__ == '__main__':
