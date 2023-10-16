@@ -3,13 +3,12 @@ import os
 from pathlib import Path
 
 import discord
-from discord.ext import  commands
+from discord.ext import commands
 
-from dotenv import  load_dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
-logging.basicConfig(level=logging.INFO)
 log = logging.getLogger('BOT-MAIN')
 
 bot = commands.Bot(
