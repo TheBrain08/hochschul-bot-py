@@ -32,7 +32,3 @@ if __name__ == '__main__':
     token = os.getenv('BOT_TOKEN')
     bot.run(token)
 
-@bot.event()
-async def on_member_join(member):
-    role = discord.utils.get(member.server.roles, id ='<1159897548446760981>')
-    await bot.add_roles(member, role)
