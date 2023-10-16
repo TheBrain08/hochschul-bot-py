@@ -8,9 +8,9 @@ class auto_role(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_member_join(self, member):
-        role = discord.utils.get(member.server.roles, id="1159897548446760981")
-        await self.bot.add_roles(member, role)
+    async def on_member_join(self, mmebers):
+        role = discord.utils.get(mmebers.server.roles, id="1159897548446760981")
+        await mmebers.add_roles(mmebers, role)
 
 
 def setup(bot):
