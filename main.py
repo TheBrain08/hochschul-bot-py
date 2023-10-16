@@ -12,7 +12,7 @@ load_dotenv()
 log = logging.getLogger('BOT-MAIN')
 
 intents = discord.Intents.default()
-intents.member = True
+intents.members = True
 
 bot = commands.Bot(
     command_prefix=commands.when_mentioned_or(),
