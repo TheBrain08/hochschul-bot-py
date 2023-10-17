@@ -9,7 +9,8 @@ class PollCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.slash_command(name='Poll', description='Starte eine Umfrage')
+    @commands.Cog.slash_command(name='Poll', description='Starte eine Umfrage, die nur mit ja oder nein beantwortet '
+                                                         'werden kann.')
     async def poll_command(self, ctx, arg1):
         embed = discord.Embed(title=f'Umfrage 📊',
                               description=f'{arg1}', color=16711680)
