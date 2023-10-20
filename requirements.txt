@@ -1,2 +1,5 @@
 git+https://github.com/mccoderpy/discord.py-message-components.git@developer
 python-dotenv
+aiomysql
+aiofiles
+pillow

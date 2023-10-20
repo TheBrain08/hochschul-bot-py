@@ -31,6 +31,6 @@ if __name__ == '__main__':
     for cog in cogs:
         bot.load_extension(f'cogs.{cog}')
         log.info(f'Loaded cog {cog}')
-    token = os.getenv('BOT_TOKEN')
+    token = os.getenv('BOT_TOKEN_TEST')
     bot.run(token)
 
