@@ -3,3 +3,4 @@ python-dotenv
 aiomysql
 aiofiles
 pillow
+easy-pil

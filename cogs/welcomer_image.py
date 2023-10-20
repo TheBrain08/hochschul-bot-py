@@ -16,7 +16,7 @@ class WelcomerImage(commands.Cog):
     async def on_member_join(self, member):
         channel = self.bot.get_channel(1159897549503742023)
 
-        background = Editor("bg.jpg")
+        background = Editor("../bg.jpg")
         profile_image = await load_image_async(str(member.avatar_url))
 
         profile = Editor(profile_image).resize((220, 220)).circle_image()
@@ -30,7 +30,7 @@ class WelcomerImage(commands.Cog):
         background.text((550, 350), f"Welcome on {member.guild.name}", color="white", font=poppins, align="center")
         #background.text((550, 400), f"{member.display_name} du bist der {len(member.guild.members)} user auf dem Server", color="white", font=poppins_small, align="center")
 
-        filer = File(fp=background.image_bytes, filename="bg.jpg")
+        filer = File(fp=background.image_bytes, filename="../bg.jpg")
         await channel.send(file=filer)
 
 def setup(bot):
