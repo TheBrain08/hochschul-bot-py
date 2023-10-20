@@ -11,34 +11,26 @@ class WelcomerImage(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.slash_command(name='Bla', description='Starte eine Umfrage, die nur mit ja oder nein beantwortet '
-                                                         'werden kann.')
+    @commands.Cog.listener()
     async def on_member_join(self, member):
-        channel = self.bot.get_channel(953381552539189322)
+        channel = self.bot.get_channel(1159897549503742023)
 
-        background = Editor('bg.png')
+        background = Editor("bg.jpg")
         profile_image = await load_image_async(str(member.avatar_url))
 
-        profile = Editor(profile_image).resize((150,150)).circle_image()
+        profile = Editor(profile_image).resize((220, 220)).circle_image()
         poppins = Font.poppins(size=50, variant="bold")
 
-        poppins_small = Font.poppins(size=20, variant="light")
+        poppins_small = Font.poppins(size=30)
 
-        background.paste(profile, (550, 250))
-        background.ellipse((550,250), 150,150,outline="white",stroke_width=5)
+        background.paste(profile, (450, 80))
+        background.ellipse((450, 80), 220, 220, outline="white",stroke_width=5)
 
-        background.text((550,400),f"Welcome on {member.guild.name}", color="white", font=poppins, align="center")
+        background.text((550, 350), f"Welcome on {member.guild.name}", color="white", font=poppins, align="center")
+        background.text((550, 400), f"{member.display_name} du bist der {len(member.guild.members)} user auf dem Server", color="white", font=poppins_small, align="center")
 
-        filer = File(fp=background.image_bytes, filename='bg.png')
+        filer = File(fp=background.image_bytes, filename="bg.jpg")
         await channel.send(file=filer)
-
-       """embed = discord.Embed(title=f'Willkommen auf dem {member.guild.name}  Server',
-                              description=f'Willkommen Test auf unserem Server!\n\n'
-                                            f'Du bist der {len(member.guild.members)}. User auf unserem Server!',
-                              color=discord.Color.green())
-        embed.timestamp = datetime.datetime.utcnow()
-
-        await channel.send(embed=embed)"""
 
 def setup(bot):
     bot.add_cog(WelcomerImage(bot))
