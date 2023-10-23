@@ -11,16 +11,24 @@ def get_page_links(url, tag):
     Essen = Essensplan.find("small", {"class":"extra-text"})
     Tage = Essensplan.find("h3")
     with open(tag + ".txt", 'w') as file:
-        file.write(str(Tage))
         file.write(str(Essen.prettify()))
+    with open(tag + "-tag.txt", 'w') as file:
+        file.write(str(Tage))
 
 def delet_words(tag):
     with open(tag + '.txt', 'r') as file:
         text = file.read()
     new_text = text.replace('<small class="extra-text mb-15px">', ' ').replace('<br/>', ' ').replace('</small>', ' ') \
-        .replace('<h3>', ' ').replace('</h3>', ' ')
+        .replace('<h3>', ' ').replace('</h3>', ' ').replace(' ','')
 
     with open(tag + '.txt', 'w') as file:
+        file.write(new_text)
+
+    with open(tag + '-tag.txt', 'r') as file:
+        text = file.read()
+    new_text = text.replace('<h3>', ' ').replace('</h3>', ' ').replace(' ','')
+
+    with open(tag + '-tag.txt', 'w') as file:
         file.write(new_text)
 
 def colletion():
