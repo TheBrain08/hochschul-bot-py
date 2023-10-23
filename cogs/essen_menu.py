@@ -17,7 +17,7 @@ class EssenMenu(commands.Cog):
 
         embed = discord.Embed(title=f'Essen Menu der Woche {datetime.now().strftime("%d.%m.%Y")}', color=discord.Color.blurple())
         for x in wochentage:
-            embed.add_field(name=open('./Essen/'+x + '-tag.txt', 'r').read() , value='```'+ open('./Essen/'+x +'.txt','r').read() + '```')
+            embed.add_field(name=open('./Essen/'+x + '-tag.txt', 'r',encoding='windows-1252').read() , value='```'+ open('./Essen/'+x +'.txt','r',encoding='windows-1252').read() + '```')
 
         embed.timestamp = datetime.utcnow()
         embed.set_footer(text=f'Angefragt von {ctx.author}', icon_url=ctx.author.avatar_url)
