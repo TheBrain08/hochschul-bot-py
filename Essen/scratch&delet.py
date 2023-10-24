@@ -18,7 +18,6 @@ def get_page_links(url, tag):
         file.write(str(Tage))"""
     for i in range(3):
         with open(tag + str(i) + ".txt", 'w') as file:
-            #file.write(str(Titel[i]))
             file.write(str(Essen[i]))
     with open(tag + "-tag.txt", 'w') as file:
         file.write(str(Tage))
