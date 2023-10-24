@@ -4,4 +4,4 @@ aiomysql
 aiofiles
 pillow
 easy-pil
-
+bs4
