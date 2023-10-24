@@ -9,13 +9,8 @@ def get_page_links(url, tag):
     sp = BeautifulSoup(r.text, "html.parser")
     Essensplan = sp.find("div",{"id":tag})
     Essen = Essensplan.find_all("small", {"class":"extra-text"})
-    Tage = Essensplan.find_all("h3")
+    Tage = Essensplan.find("h3")
     Titel = Essensplan.find_all("h5")
-    """with open(tag + ".txt", 'w') as file:
-        file.write(str(Titel[0]))
-        file.write(str(Essen.prettify()))
-    with open(tag + "-tag.txt", 'w') as file:
-        file.write(str(Tage))"""
     for i in range(3):
         with open(tag + str(i) + ".txt", 'w') as file:
             file.write(str(Essen[i]))
@@ -31,7 +26,6 @@ def delet_words(tag):
 
         with open(tag + str(i) + '.txt', 'w') as file:
             file.write(new_text)
-            print(i)
 
     with open(tag + '-tag.txt', 'r') as file:
         text = file.read()

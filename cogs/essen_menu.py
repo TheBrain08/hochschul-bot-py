@@ -23,7 +23,7 @@ class EssenMenu(commands.Cog):
         end_of_week = start_of_week + timedelta(days=6)
         for x in wochentage:
 
-            embed = discord.Embed(title=f'Essen Menu der Woche {start_of_week} - {end_of_week}', color=discord.Color.blurple())
+            embed = discord.Embed(title='Essen Menu von' + str(open('./Essen/' + x + '-tag.txt', 'r').read()), color=discord.Color.blurple())
             embed.add_field(name='Essen 1',
                             value='```'+ open('./Essen/' + x + '0.txt', 'r', encoding='windows-1252').read() + '```')
             embed.add_field(name='Essen 2',
