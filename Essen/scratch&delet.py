@@ -8,8 +8,8 @@ def get_page_links(url, tag):
     r = requests.get(url)
     sp = BeautifulSoup(r.text, "html.parser")
     Essensplan = sp.find("div",{"id":tag})
-    Essen = Essensplan.find("small", {"class":"extra-text"})
-    Tage = Essensplan.find("h3")
+    Essen = Essensplan.find_all("small", {"class":"extra-text"})
+    Tage = Essensplan.find_all("h3")
     with open(tag + ".txt", 'w') as file:
         file.write(str(Essen.prettify()))
     with open(tag + "-tag.txt", 'w') as file:
