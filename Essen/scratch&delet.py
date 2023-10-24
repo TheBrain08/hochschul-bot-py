@@ -22,14 +22,15 @@ def delet_words(tag):
         with open(tag + str(i) + '.txt', 'r') as file:
             text = file.read()
         new_text = text.replace('<small class="extra-text mb-15px">', ' ').replace('<br/>', ' ').replace('</small>', ' ') \
-            .replace('<h5>', ' ').replace('</h5>', ' ').replace('<span class="sr-only">', ' ').replace('</span>', ' ')
+            .replace('<h5>', ' ').replace('</h5>', ' ').replace('<span class="sr-only">', ' ').replace('</span>', ' ') \
+            .replace(' ', '', 1)
 
         with open(tag + str(i) + '.txt', 'w') as file:
             file.write(new_text)
 
     with open(tag + '-tag.txt', 'r') as file:
         text = file.read()
-    new_text = text.replace('<h3>', ' ').replace('</h3>', ' ')
+    new_text = text.replace('<h3>', ' ').replace('</h3>', ' ').replace(' ', '', 1)
 
     with open(tag + '-tag.txt', 'w') as file:
         file.write(new_text)
