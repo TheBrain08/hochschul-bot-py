@@ -6,7 +6,7 @@ import discord
 from discord.ext import commands
 
 from dotenv import load_dotenv
-from Essen import scratchdelet
+#from Essen import scratchdelet
 
 load_dotenv()
 
@@ -23,7 +23,7 @@ bot = commands.Bot(
     sync_commands=True,
     delete_not_existing_commands=True
 )
-scratchdelet.start()
+#scratchdelet.start()
 
 if __name__ == '__main__':
     log.info('Starting bot...')
